@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>cylinder</title>
+		<style>
+			body { margin: 0; }
+			canvas { width: 100%; height: 100% }
+		</style>
+	</head>
+	<body>
+        <div id="test">
+        <script src="js/three.js"></script>
+        <script src="js/OrbitControls.js"></script>
+		<script>
+			var scene = new THREE.Scene();
+			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+			var renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+            var controls = new THREE.OrbitControls( camera, renderer.domElement );
+            camera.position.set( 0, 20, 30 );
+            controls.autoRotate=false;
+            controls.update();
+
+
+            // var geometry = new THREE.CylinderGeometry( 5, 5, 20, 32,1,1,0,2);
+            var geometry = new THREE.CylinderGeometry( 5, 5, 20, 32);
+
+            var material = new THREE.MeshBasicMaterial( {color: 0xff0000} );
+            var cylinder = new THREE.Mesh( geometry, material );
+            scene.add( cylinder );
+
+			scene.add( new THREE.AxesHelper( 20 ) );
+
+			var animate = function () {
+				requestAnimationFrame( animate );
+
+                // controls.update();
+
+				renderer.render( scene, camera );
+			};
+
+            animate();
+
+            window.addEventListener("scroll", updateCamera);
+        </script>
+    </div>
+	</body>
+</html>

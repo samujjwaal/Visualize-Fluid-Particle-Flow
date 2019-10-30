@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset=utf-8>
+
+    <title>Flow Visualization</title>
+
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+
+    <script src="js/three.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/scene.js"></script>
+    <script src="js/particleSystem.js"></script>
+    <script src="js/main.js"></script>
+
+
+</head>
+
+<body style="background-color:#dadaeb" onload="App.start()">
+
+        <div class="container">
+          <div class="header clearfix">
+            <h3><nav>
+                <ul class="nav nav-pills">
+                    <li role="presentation" ><a href="../index.html">Home</a></li>
+                    <li role="presentation" ><a href="../visual.html">Visualization</a></li>
+                    <li role="presentation"><a href="../svg.html">SVG</a></li>
+                    <li role="presentation" ><a href="../d3_hw2">D3 HW2</a></li>
+                    <li role="presentation" class="active"><a href="hw3.html">Three.js HW3</a></li>
+                    <li role="presentation" ><a href="../credits.html">Credits</a></li>
+                  </ul>
+            </nav></h3>
+          </div>
+        </div>
+
+    <center>
+    <div>
+            <h2 >Flow Visualization using Three.js and D3.js</h2>
+            <p>Here is an attempt at visualizing a computational fluid flow dataset from the San Diego Supercomputing Center.
+            <br>Click <a href="http://www.uni-kl.de/sciviscontest/">here</a> to understand the data and science behind it.
+            <br><br>The intensity of Green hue corresponds to the concentration for that paricular point in the 3D visualization.
+            </p>
+    </div>
+    </center>
+    <div >
+        <div>
+            <div class="plane col-lg-6 "></div>
+            <div class="particles col-lg-6" >
+                <div id="scene"></div>
+            </div>
+        </div>
+
+        <center><p>
+            <label for="z">Z = </label>
+            <input type="text" id="z" readonly >
+        </p>
+          <div id="zSlider"></div>
+          <br>
+          <button id="reset" class="btn btn-success">Reset Colors</button>
+        <br>
+          <br></center>
+    </div>
+
+    <div><h4>Intructions:
+        <ol>
+        <li>Use the slider to move the plane along the Z axis.</li>
+        <li>The Cylinder can be rotated with the mouse.</li>
+        <li>The cylinder can be zoomed with mouse scroll.</li>
+        <li>Press "Reset Colors" to reset the cylinder color scheme.</li>
+    </ol></h4>
+</div>
+
+    <br>
+    <br>
+    <footer class="footer">
+        <address>
+            <strong>Samujjwaal Dey</strong><br>
+            <strong>CS Grad Student</strong><br>
+            University of Illinois at Chicago<br>
+            Chicago, IL 60607<br>
+            <abbr title="Phone">P:</abbr> (312) 975-4411 <br>
+            <a href="mailto:#">sdey9@uic.edu</a>
+        </address>
+      </footer>
+
+</body>
+</html>

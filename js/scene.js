@@ -51,6 +51,7 @@ const Scene = function(options) {
 
     self.controls = new THREE.OrbitControls( self.camera, self.renderer.domElement );
     self.controls.enableKeys = false;
+    this.cameraControls.enableDamping = true;
     self.controls.dampingFactor = 0.01; // friction
     self.controls.rotateSpeed = 0.01; // mouse sensitivity
 

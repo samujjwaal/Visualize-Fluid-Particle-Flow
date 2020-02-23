@@ -84,10 +84,10 @@ const ParticleSystem = function() {
         }
         //SVG element for the section of cylinder
         var section = d3.select(".plane").append("svg")
-            .attr("width", 500)
-            .attr("height", 500);
-        var xScale = d3.scaleLinear().range( [ 0, 500 ]);
-        var yScale = d3.scaleLinear().range( [ 500, 0 ] );
+            .attr("width", 400)
+            .attr("height", 400);
+        var xScale = d3.scaleLinear().range( [ 0, 400 ]);
+        var yScale = d3.scaleLinear().range( [ 400, 0 ] );
         xScale.domain( [ bounds.minX, bounds.maxX ] );
         yScale.domain( [ bounds.minY, bounds.maxY ] );
 

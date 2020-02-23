@@ -17,7 +17,7 @@ var App = App || {};
 
         // initialize the particle system
         const particleSystem = new ParticleSystem();
-        particleSystem.initialize('git/data/050.csv');
+        particleSystem.initialize('data/050.csv');
 
         //add the particle system to the scene
         App.scene.addObject( particleSystem.getParticleSystem());

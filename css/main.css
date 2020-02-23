@@ -1,5 +1,11 @@
+html{
+  zoom: 95%;
+  overflow-x: hidden;
+}
+
 body {
     font: 15px Helvetica;
+    overflow-x: hidden;
   }
 path {
     stroke-width: 1px;
@@ -18,3 +24,29 @@ p
 {
 	font-size: 15px;
 }
+
+.legend .legend-title {
+    text-align: left;
+    margin-bottom: 2px;
+    font-weight: bold;
+    font-size: 70%;
+    }
+  .legend .legend-scale ul {
+    margin: 0;
+    padding: 0;
+    }
+  .legend .legend-scale ul li {
+    display: block;
+    float: left;
+    width: 50px;
+    margin-bottom: 2px;
+    text-align: right;
+    font-size: 70%;
+    }
+  .legend ul.legend-labels li span {
+    display: block;
+    float: left;
+    height: 12px;
+    width: 50px;
+    }
+ 

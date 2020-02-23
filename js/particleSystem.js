@@ -36,8 +36,9 @@ const ParticleSystem = function() {
         sceneObject.add(cylinder);
     };
 
-    var greenScale = d3.scaleSequential( d3.interpolateGreens ).domain([0, 30]);
-    var greyScale = d3.scaleSequential( d3.interpolateGreys ).domain([0, 30]);
+    var greenScale = d3.scaleSequential( d3.interpolateGreens ).domain([0, 35]);
+    // console.log(greenScale(0));
+    var greyScale = d3.scaleSequential( d3.interpolateGreys ).domain([0, 35]);
 
     var PlaneGeometry = new THREE.PlaneGeometry( 12,12 );
     var PlaneMaterial = new THREE.MeshBasicMaterial( {color: 0x00000, side: THREE.DoubleSide, transparent:true, opacity:0.6 } );
@@ -47,10 +48,6 @@ const ParticleSystem = function() {
     // creates the particle system
     self.createParticleSystem = function() {
         $(".scene").html('');
-        // var PlaneGeometry = new THREE.PlaneGeometry(12,12);
-        // var PlaneMaterial = new THREE.MeshBasicMaterial( {color: 0x00000, side: THREE.DoubleSide, transparent:true, opacity:0.6 } );
-        // var plane = new THREE.Mesh( PlaneGeometry, PlaneMaterial );
-        // var particles = new THREE.BufferGeometry();
         var color = [];
         var particlepoints = [];
 

@@ -21,7 +21,7 @@ const Scene = function(options) {
 
     // setup the camera
     self.camera = new THREE.PerspectiveCamera( 75, width / height, 0.1, 1000 );
-    self.camera.position.set(-15,5,10);
+    self.camera.position.set(-10,8,-2);
 
 
     // Add a directional light to show off the objects
@@ -51,9 +51,11 @@ const Scene = function(options) {
 
     self.controls = new THREE.OrbitControls( self.camera, self.renderer.domElement );
     self.controls.enableKeys = false;
-    // this.cameraControls.enableDamping = true;
-    self.controls.dampingFactor = 0.01; // friction
-    self.controls.rotateSpeed = 0.01; // mouse sensitivity
+    self.controls.enablePan = false;
+	self.controls.enableZoom = false; 
+	self.controls.enableDamping = true;
+	self.controls.dampingFactor = 0.07; // friction
+    self.controls.rotateSpeed = 0.07;   // mouse sensitivity
 
     self.public = {
 
@@ -73,4 +75,5 @@ const Scene = function(options) {
     };
 
     return self.public;
+    
 };

@@ -1,50 +1,100 @@
+
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>cylinder</title>
-		<style>
-			body { margin: 0; }
-			canvas { width: 100%; height: 100% }
-		</style>
-	</head>
-	<body>
-        <div id="test">
-        <script src="js/three.js"></script>
-        <script src="js/OrbitControls.js"></script>
-		<script>
-			var scene = new THREE.Scene();
-			var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+<head>
+    <meta charset=utf-8>
 
-			var renderer = new THREE.WebGLRenderer();
-			renderer.setSize( window.innerWidth, window.innerHeight );
-			document.body.appendChild( renderer.domElement );
+    <title>Flow Visualization</title>
 
-            var controls = new THREE.OrbitControls( camera, renderer.domElement );
-            camera.position.set( 0, 20, 30 );
-            controls.autoRotate=false;
-            controls.update();
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="//d3js.org/d3-scale-chromatic.v0.3.min.js"></script>
+
+    <script src="js/three.js"></script>
+    <script src="js/OrbitControls.js"></script>
+    <script src="js/scene.js"></script>
+    <script src="js/particleSystem.js"></script>
+    <script src="js/main.js"></script>
 
 
-            // var geometry = new THREE.CylinderGeometry( 5, 5, 20, 32,1,1,0,2);
-            var geometry = new THREE.CylinderGeometry( 5, 5, 20, 32);
+</head>
 
-            var material = new THREE.MeshBasicMaterial( {color: 0xff0000} );
-            var cylinder = new THREE.Mesh( geometry, material );
-            scene.add( cylinder );
+<body style="background-color:#dadaeb" onload="App.start()">
 
-			scene.add( new THREE.AxesHelper( 20 ) );
-
-			var animate = function () {
-				requestAnimationFrame( animate );
-
-                // controls.update();
-
-				renderer.render( scene, camera );
-			};
-
-            animate();
-
-            window.addEventListener("scroll", updateCamera);
-        </script>
+    <center>
+    <div>
+            <h2 >Flow Visualization using Three.js and D3.js</h2>
+            <!-- <p>Here is an attempt at visualizing a computational fluid flow dataset from the San Diego Supercomputing Center.
+            <br>Click <a href="http://www.uni-kl.de/sciviscontest/">here</a> to understand the data and science behind it.
+            <br><br>The intensity of Green hue corresponds to the concentration for that particular point in the 3D visualization.
+            </p> -->
     </div>
-	</body>
+    </center>
+    <div >
+        <div>
+            <div class="plane col-lg-4 "></div>
+            <div class="particles col-lg-8" >
+                <div id="scene"></div>
+            </div>
+            <div class="legend col-lg-12">
+                <div class='legend-title'>Particle Concentration</div>
+                <div class='legend-scale'>
+                    <ul class='legend-labels'>
+                        <li><span style='background:#f7fcfd;'></span>0 - 0.005</li>
+                        <li><span style='background:#e5f5f9;'></span>20</li>
+                        <li><span style='background:#ccece6;'></span>  50</li>
+                        <li><span style='background:#99d8c9;'></span>  100</li>
+                        <li><span style='background:#66c2a4;'></span>  150</li>
+                        <li><span style='background:#41ae76;'></span>  200</li>
+                        <li><span style='background:#238b45;'></span>  250</li>
+                        <li><span style='background:#006d2c;'></span>  300</li>
+                        <li><span style='background:#00441b;'></span>  360</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <center><p>
+            <label for="z">Z = </label>
+            <input type="text" id="z" readonly >
+        </p>
+          <div id="zSlider"></div>
+          <br>
+          <button id="reset" class="btn btn-success">Reset Slider</button>
+        <br>
+          <br>
+        </center>
+    </div>
+
+    <div><h4>Instructions:
+        <ol>
+        <li>Use the slider to move the plane along the Z axis.</li>
+        <li>The Cylinder can be rotated with the mouse.</li>
+        <li>The cylinder can be zoomed with mouse scroll.</li>
+        <li>Press "Reset Colors" to reset the cylinder color scheme.</li>
+    </ol></h4>
+</div>
+
+
+    <br>
+    <br>
+    <footer class="footer">
+        <address>
+            <strong>Samujjwaal Dey</strong><br>
+            <strong>CS Grad Student</strong><br>
+            University of Illinois at Chicago<br>
+            Chicago, IL 60607<br>
+            <abbr title="Phone">P:</abbr> (312) 975-4411 <br>
+            <a href="mailto:#">sdey9@uic.edu</a>
+        </address>
+      </footer>
+
+</body>
 </html>
